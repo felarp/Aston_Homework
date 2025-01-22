@@ -10,9 +10,11 @@ public class Park {
         }
 
         public void printInfo() {
-            System.out.printf("Аттракцион: %s, Время работы: %s, Стоимость: %.2f%n", name, hours, cost);
+            System.out.printf("Аттракцион: %s, Время работы: %s, Стоимость: %.2f%n",
+                    name, hours, cost);
         }
     }
+
 
     public static void main(String[] args) {
         Park park = new Park();
