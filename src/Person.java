@@ -1,5 +1,3 @@
-
-
 public class Person {
     private final String fullName, position, email, number;
     private final double salary;
