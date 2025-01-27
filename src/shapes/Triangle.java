@@ -4,22 +4,42 @@ public class Triangle implements Shape{
     private final double sideA;
     private final double sideB;
     private final double sideC;
+    private final String fillColor;
+    private final String borderColor;
 
-    public Triangle(double sideA, double sideB, double sideC) {
+    Triangle(double sideA, double sideB, double sideC, String fillColor, String borderColor) {
         this.sideA = sideA;
         this.sideB = sideB;
         this.sideC = sideC;
+        this.fillColor = fillColor;
+        this.borderColor = borderColor;
     }
 
     @Override
-    public double calculateArea() {
-        double semiPerimeter = calculatePerimeter() / 2;
-        return Math.sqrt(semiPerimeter * (semiPerimeter - sideA) * (semiPerimeter - sideB) * (semiPerimeter - sideC));
+    public String getName() {
+        return "Треугольник";
     }
 
     @Override
-    public double calculatePerimeter() {
+    public double getPerimeter() {
         return sideA + sideB + sideC;
     }
+
+    @Override
+    public double getArea() {
+        double p = getPerimeter() / 2;
+        return Math.sqrt(p * (p - sideA) * (p - sideB) * (p - sideC));
+    }
+
+    @Override
+    public String getFillColor() {
+        return fillColor;
+    }
+
+    @Override
+    public String getBorderColor() {
+        return borderColor;
+    }
 }
+
 

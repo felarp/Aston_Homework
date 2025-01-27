@@ -1,21 +1,16 @@
 package shapes;
 
 public interface Shape {
+    String getName();
+    double getPerimeter();
+    double getArea();
+    String getFillColor();
+    String getBorderColor();
 
-    default double calculateArea() {
-        throw new UnsupportedOperationException("Площадь не определена для данной фигуры");
-    }
-
-    default double calculatePerimeter() {
-        throw new UnsupportedOperationException("Периметр не определен для данной фигуры");
-    }
-
-    default void displayInfo(String fillColor, String borderColor) {
-        System.out.println("Площадь: " + calculateArea());
-        System.out.println("Периметр: " + calculatePerimeter());
-        System.out.println("Цвет заливки: " + fillColor);
-        System.out.println("Цвет границы: " + borderColor);
-        System.out.println("----------------------------");
+    default void displayCharacteristics() {
+        System.out.println("Фигура: " + getName() + " [Периметр: " + getPerimeter() +
+                ", Площадь: " + getArea() + ", Цвет фона: " + getFillColor() +
+                ", Цвет границы: " + getBorderColor() + "]");
     }
 }
 
