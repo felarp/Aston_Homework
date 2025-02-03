@@ -6,13 +6,17 @@ public class Main {
                 {"9", "10", "11", "12"},
                 {"13", "14", "15", "16"}
         };
+
         try {
             int sum = sumArrayElements(array);
-            System.out.println("Сумма элементов массива: " + sum);
-        } catch (MyArraySizeException | MyArrayDataException e) {
-            System.out.println(e.getMessage());
+            System.out.println("Расчет выполнен успешно. Сумма элементов массива: " + sum);
+        } catch (MyArraySizeException e) {
+            System.out.println("Ошибка: " + e.getMessage());
+        } catch (MyArrayDataException e) {
+            System.out.println("Ошибка: " + e.getMessage());
         }
     }
+
     public static int sumArrayElements(String[][] array) throws MyArraySizeException, MyArrayDataException {
         if (array.length != 4 || array[0].length != 4) {
             throw new MyArraySizeException("Неверный размер массива. Ожидается массив 4x4.");
@@ -31,13 +35,4 @@ public class Main {
         return sum;
     }
 }
-class MyArraySizeException extends Exception {
-    public MyArraySizeException(String message) {
-        super(message);
-    }
-}
-class MyArrayDataException extends Exception {
-    public MyArrayDataException(String message) {
-        super(message);
-    }
-}
+
