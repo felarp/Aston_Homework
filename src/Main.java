@@ -1,19 +1,31 @@
 public class Main {
     public static void main(String[] args) {
-        String[][] array = {
-                {"1", "2", "3", "4"},
-                {"5", "6", "7", "8"},
-                {"9", "10", "11", "12"},
-                {"13", "14", "15", "16"}
+        String[][][] testArrays = {
+                {
+                        {"1", "2", "3", "4"},
+                        {"5", "6", "7", "8"},
+                        {"9", "10", "11", "12"},
+                        {"13", "14", "15", "16"}
+                },
+                {
+                        {"1", "2", "3"},
+                        {"4", "5", "6"},
+                        {"7", "8", "9"}
+                },
+                {
+                        {"1", "2", "3", "4"},
+                        {"5", "6", "7", "8"},
+                        {"9", "10", "11", "12"},
+                        {"13", "14", "A", "16"}
+                }
         };
 
-        try {
-            int sum = sumArrayElements(array);
-            System.out.println("Расчет выполнен успешно. Сумма элементов массива: " + sum);
-        } catch (MyArraySizeException e) {
-            System.out.println("Ошибка: " + e.getMessage());
-        } catch (MyArrayDataException e) {
-            System.out.println("Ошибка: " + e.getMessage());
+        for (String[][] array : testArrays) {
+            try {
+                System.out.println("Результат расчета: " + sumArrayElements(array));
+            } catch (MyArraySizeException | MyArrayDataException e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 
@@ -35,4 +47,3 @@ public class Main {
         return sum;
     }
 }
-
